@@ -58,7 +58,7 @@ $(function () {
       // 实现弹框 layer.msg("只想弱弱提示");
       if (res.data.status !==0) {
 
-       return layer.msg('res.data.message')
+       return layer.msg(res.data.message)
       }
         // 注册成功
         layer.msg("注册成功")
@@ -104,9 +104,12 @@ $(function () {
              return layer.msg(res.data.message)
             }
 
+            
             layer.msg("登录成功,即将跳转去首页",function () {
-              // location.href = "/home/index.html"
+              location.href = "/home/index.html"
             })
+            localStorage.setItem("token", res.data.token);
+
           })
         });
 
